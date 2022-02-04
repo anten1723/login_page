@@ -11,7 +11,7 @@ function validate_credentials($username, $password)
         return false;
 }
 
-function signup($username, $password, $email_address, $phone)
+function signup($user, $pass, $email, $phone)
 {
 
     $servername = "mysql.selfmade.ninja";
@@ -26,16 +26,16 @@ function signup($username, $password, $email_address, $phone)
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = INSERT INTO `auth` (`username`, `password`, `email`, `phone`, `blocked`, `active`)
-    VALUES ('$user', '$pass', '$email', '$phone', '0', '0');
+    $sql = "INSERT INTO `auth` (`username`, `password`, `email`, `phone`, `blocked`, `active`)
+    VALUES ('$user', '$pass', '$email', '$phone', '0', '1');";
+    $error = false;
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-        $error=false;
+        $error = false;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-        $error=$conn->error
+        $error = $conn->error;
     }
 
     $conn->close();
+    return $error;
 }
