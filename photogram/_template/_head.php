@@ -14,5 +14,4 @@
     <link href="/photogram/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="/photogram/css/<?= basename($_SERVER['PHP_SELF'], ".php") ?>.css" rel="stylesheet">
-
 </head>
