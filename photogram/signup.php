@@ -13,7 +13,7 @@ include 'library/load.php';
 
     <main>
 
-        <? load_template('_login');
+        <? load_template('_signup');
         ?>
 
     </main>
